@@ -30,8 +30,8 @@ function CountryRegions({
 
   const filteredRegions = regionsList.filter((region) => {
     const matchesSearchQuery =
-      region.name?.ar?.includes(searchQuery) ||
-      region.name?.en?.includes(searchQuery);
+      region.name?.ar?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      region.name?.en?.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesFilterOptions =
       filterOptions.length === 0 ||
       filterOptions.some(

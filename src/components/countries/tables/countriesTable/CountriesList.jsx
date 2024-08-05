@@ -26,8 +26,10 @@ const CountriesList = ({ searchQuery, filterOptions }) => {
   const pagination = countries?.meta?.pagination || {};
 
   const filteredCountries = countriesArr.filter((country) => {
+    console.log(searchQuery)
+    
     const matchesSearchQuery =
-      country.name?.ar?.includes(searchQuery) || country.name?.en?.includes(searchQuery);
+    country.name?.ar?.toLowerCase().includes(searchQuery.toLowerCase()) || country.name?.en?.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesFilterOptions =
       filterOptions.length === 0 ||
       filterOptions.some((option) => option === (country.active ? "نشط" : "غير نشط"));
